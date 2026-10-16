@@ -202,6 +202,32 @@ fun BiodataLayout() {
                         fontSize = dimensionResource(id = R.dimen.text_size_subtitle).value.sp
                     )
                     Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_large)))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
+                    ) {
+                        OutlinedTextField(
+                            value = namaDepan,
+                            onValueChange = { namaDepan = it },
+                            label = { Text(stringResource(id = R.string.label_nama_depan)) },
+                            modifier = Modifier.weight(1f),
+                            shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_radius_medium)),
+                            colors = textFieldColors,
+                            singleLine = true
+                        )
+                        OutlinedTextField(
+                            value = namaBelakang,
+                            onValueChange = { namaBelakang = it },
+                            label = { Text(stringResource(id = R.string.label_nama_belakang)) },
+                            modifier = Modifier.weight(1f),
+                            shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_radius_medium)),
+                            colors = textFieldColors,
+                            singleLine = true
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
                 }
             }
         }
