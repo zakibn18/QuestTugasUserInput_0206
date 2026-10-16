@@ -297,6 +297,44 @@ fun BiodataLayout() {
                     }
 
                     Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+
+                    Text(
+                        text = stringResource(id = R.string.label_pilih_skill),
+                        fontWeight = FontWeight.Bold,
+                        color = colorResource(id = R.color.text_label),
+                        modifier = Modifier.align(Alignment.Start)
+                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        SkillCheckbox(label = stringResource(id = R.string.skill_android), checked = isAndroid, onCheckedChange = { isAndroid = it })
+                        SkillCheckbox(label = stringResource(id = R.string.skill_ui_ux), checked = isUiUx, onCheckedChange = { isUiUx = it })
+                        SkillCheckbox(label = stringResource(id = R.string.skill_web), checked = isWeb, onCheckedChange = { isWeb = it })
+                    }
+
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_large)))
+
+                    Button(
+                        onClick = { showPopup = true },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp),
+                        shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_radius_medium)),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = if (namaDepan.isNotEmpty() && tglLahir.isNotEmpty() && experience.isNotEmpty())
+                                colorResource(id = R.color.purple_title) else colorResource(id = R.color.btn_proceed_disabled)
+                        ),
+                        enabled = namaDepan.isNotEmpty() && tglLahir.isNotEmpty() && experience.isNotEmpty()
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.btn_proceed),
+                            color = colorResource(id = R.color.btn_proceed_text),
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
                 }
             }
         }
