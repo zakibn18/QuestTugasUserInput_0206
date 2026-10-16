@@ -245,7 +245,58 @@ fun BiodataLayout() {
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
                     ) {
+                        OutlinedTextField(
+                            value = tglLahir,
+                            onValueChange = { },
+                            readOnly = true,
+                            label = { Text(stringResource(id = R.string.label_tgl_lahir)) },
+                            modifier = Modifier.weight(1f),
+                            shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_radius_medium)),
+                            colors = textFieldColors,
+                            trailingIcon = {
+                                IconButton(onClick = { showDatePicker = true }) {
+                                    Icon(Icons.Default.DateRange, contentDescription = stringResource(id = R.string.cd_calendar_icon))
+                                }
+                            }
+                        )
+
+                        ExposedDropdownMenuBox(
+                            expanded = expandedDropdown,
+                            onExpandedChange = { expandedDropdown = !expandedDropdown },
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            OutlinedTextField(
+                                value = experience,
+                                onValueChange = { },
+                                readOnly = true,
+                                label = { Text(stringResource(id = R.string.label_experience)) },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .menuAnchor(),
+                                shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_radius_medium)),
+                                colors = textFieldColors,
+                                trailingIcon = {
+                                    ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedDropdown)
+                                }
+                            )
+                            ExposedDropdownMenu(
+                                expanded = expandedDropdown,
+                                onDismissRequest = { expandedDropdown = false }
+                            ) {
+                                expOptions.forEach { selectionOption ->
+                                    DropdownMenuItem(
+                                        text = { Text(selectionOption) },
+                                        onClick = {
+                                            experience = selectionOption
+                                            expandedDropdown = false
+                                        }
+                                    )
+                                }
+                            }
+                        }
                     }
+
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
                 }
             }
         }
