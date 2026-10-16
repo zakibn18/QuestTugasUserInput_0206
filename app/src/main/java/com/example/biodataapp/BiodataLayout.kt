@@ -240,6 +240,12 @@ fun BiodataLayout() {
                     )
 
                     Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
+                    ) {
+                    }
                 }
             }
         }
