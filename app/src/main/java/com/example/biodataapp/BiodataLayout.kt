@@ -129,4 +129,29 @@ fun BiodataLayout() {
             }
         }
     }
+
+    // Dialog DatePicker
+    if (showDatePicker) {
+        DatePickerDialog(
+            onDismissRequest = { showDatePicker = false },
+            confirmButton = {
+                TextButton(onClick = {
+                    val selectedDateMillis = datePickerState.selectedDateMillis
+                    if (selectedDateMillis != null) {
+                        // Gunakan variabel datePatternString yang sudah dideklarasikan di atas
+                        val sdf = SimpleDateFormat(datePatternString, Locale.getDefault())
+                        tglLahir = sdf.format(Date(selectedDateMillis))
+                    }
+                    showDatePicker = false
+                }) { Text(stringResource(id = R.string.btn_ok), color = colorResource(id = R.color.purple_title)) }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDatePicker = false }) {
+                    Text(stringResource(id = R.string.btn_cancel), color = colorResource(id = R.color.text_field_label))
+                }
+            }
+        ) {
+            DatePicker(state = datePickerState)
+        }
+    }
 }
