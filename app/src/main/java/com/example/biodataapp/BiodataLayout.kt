@@ -37,5 +37,14 @@ fun BiodataLayout() {
     var tglLahir by remember { mutableStateOf("") }
     var experience by remember { mutableStateOf("") }
 
-}
+    var isAndroid by remember { mutableStateOf(false) }
+    var isUiUx by remember { mutableStateOf(false) }
+    var isWeb by remember { mutableStateOf(false) }
 
+    var showPopup by remember { mutableStateOf(false) }
+
+    // State untuk DatePicker & Dropdown
+    var showDatePicker by remember { mutableStateOf(false) }
+    var expandedDropdown by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
+}
