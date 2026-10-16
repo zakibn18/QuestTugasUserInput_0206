@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">biodataapp</string>
+    <string name="app_name">BiodataApp</string>
+    <string name="form_title">Form Biodata</string>
 </resources>
