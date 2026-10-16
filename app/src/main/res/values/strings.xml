@@ -16,4 +16,17 @@
     <string name="cd_calendar_icon">Calendar Icon</string>
     <string name="popup_title">Hasil Input</string>
     <string name="popup_success_msg">Data %1$s berhasil disubmit!</string>
+    <string name="popup_result_nama">Nama: %1$s %2$s</string>
+    <string name="popup_result_email">Email: %1$s</string>
+    <string name="popup_result_tgl_lahir">Tgl Lahir: %1$s</string>
+    <string name="popup_result_experience">Pengalaman: %1$s</string>
+    <string name="popup_result_skills">Skill: %1$s</string>
+    <string name="skill_none">Tidak ada</string>
+    <string name="exp_1_year">1 Tahun</string>
+    <string name="exp_2_years">2 Tahun</string>
+    <string name="exp_3_years">3 Tahun+</string>
+    <string name="btn_cancel">Batal</string>
+    <string name="btn_ok">OK</string>
+    <string name="date_pattern">dd/MM/yyyy</string>
+    <string name="cd_dropdown_icon">Dropdown Icon</string>
 </resources>
