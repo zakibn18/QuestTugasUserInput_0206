@@ -154,4 +154,14 @@ fun BiodataLayout() {
             DatePicker(state = datePickerState)
         }
     }
+
+    Scaffold { paddingValues ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .background(Color.Black)
+        ) {
+        }
+    }
 }
