@@ -170,6 +170,19 @@ fun BiodataLayout() {
                     .height(dimensionResource(id = R.dimen.header_height)),
                 contentScale = ContentScale.Crop
             )
+
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .padding(top = dimensionResource(id = R.dimen.card_top_offset)),
+                shape = RoundedCornerShape(
+                    topStart = dimensionResource(id = R.dimen.corner_radius_large),
+                    topEnd = dimensionResource(id = R.dimen.corner_radius_large)
+                ),
+                colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.bg_card_white))
+            ) {
+            }
         }
     }
 }
