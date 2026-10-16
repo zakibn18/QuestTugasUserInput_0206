@@ -54,4 +54,19 @@ fun BiodataLayout() {
         stringResource(id = R.string.exp_2_years),
         stringResource(id = R.string.exp_3_years)
     )
+
+    // Ambil format tanggal dari strings.xml di luar blok onClick
+    val datePatternString = stringResource(id = R.string.date_pattern)
+
+    // Warna kustom Text Field
+    val textFieldColors = OutlinedTextFieldDefaults.colors(
+        focusedTextColor = colorResource(id = R.color.text_field_input),
+        unfocusedTextColor = colorResource(id = R.color.text_field_input),
+        focusedLabelColor = colorResource(id = R.color.purple_title),
+        unfocusedLabelColor = colorResource(id = R.color.text_field_label),
+        focusedBorderColor = colorResource(id = R.color.purple_title),
+        unfocusedBorderColor = colorResource(id = R.color.text_field_border),
+        focusedTrailingIconColor = colorResource(id = R.color.purple_title),
+        unfocusedTrailingIconColor = colorResource(id = R.color.text_field_label)
+    )
 }
