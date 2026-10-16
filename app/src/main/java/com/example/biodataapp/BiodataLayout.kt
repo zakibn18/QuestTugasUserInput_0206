@@ -69,4 +69,64 @@ fun BiodataLayout() {
         focusedTrailingIconColor = colorResource(id = R.color.purple_title),
         unfocusedTrailingIconColor = colorResource(id = R.color.text_field_label)
     )
+
+    // Logika Notifikasi Popup 5 Detik
+    if (showPopup) {
+        LaunchedEffect(Unit) {
+            delay(5000L) // Delay 5 detik
+            showPopup = false
+        }
+
+        Dialog(onDismissRequest = { showPopup = false }) {
+            Surface(
+                shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_radius_medium)),
+                color = colorResource(id = R.color.bg_card_white),
+                modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))
+            ) {
+                // Logika mengumpulkan skill yang dicentang
+                val selectedSkills = mutableListOf<String>()
+                if (isAndroid) selectedSkills.add(stringResource(id = R.string.skill_android))
+                if (isUiUx) selectedSkills.add(stringResource(id = R.string.skill_ui_ux))
+                if (isWeb) selectedSkills.add(stringResource(id = R.string.skill_web))
+
+                val skillText = if (selectedSkills.isEmpty()) {
+                    stringResource(id = R.string.skill_none)
+                } else {
+                    selectedSkills.joinToString(", ")
+                }
+
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(dimensionResource(id = R.dimen.padding_large)),
+                    horizontalAlignment = Alignment.Start
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.popup_title),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 18.sp,
+                        color = colorResource(id = R.color.purple_title),
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
+                    )
+
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+
+                    // Menampilkan semua hasil inputan
+                    Text(text = stringResource(id = R.string.popup_result_nama, namaDepan, namaBelakang), color = colorResource(id = R.color.text_label))
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+
+                    Text(text = stringResource(id = R.string.popup_result_email, email), color = colorResource(id = R.color.text_label))
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+
+                    Text(text = stringResource(id = R.string.popup_result_tgl_lahir, tglLahir), color = colorResource(id = R.color.text_label))
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+
+                    Text(text = stringResource(id = R.string.popup_result_experience, experience), color = colorResource(id = R.color.text_label))
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+
+                    Text(text = stringResource(id = R.string.popup_result_skills, skillText), color = colorResource(id = R.color.text_label))
+                }
+            }
+        }
+    }
 }
