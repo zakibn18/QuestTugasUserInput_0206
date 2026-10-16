@@ -162,6 +162,14 @@ fun BiodataLayout() {
                 .padding(paddingValues)
                 .background(Color.Black)
         ) {
+            Image(
+                painter = painterResource(id = R.drawable.header_bg),
+                contentDescription = stringResource(id = R.string.cd_header_image),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(dimensionResource(id = R.dimen.header_height)),
+                contentScale = ContentScale.Crop
+            )
         }
     }
 }
