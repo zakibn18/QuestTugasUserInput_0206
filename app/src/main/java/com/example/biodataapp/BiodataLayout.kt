@@ -340,3 +340,19 @@ fun BiodataLayout() {
         }
     }
 }
+
+@Composable
+fun SkillCheckbox(label: String, checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Checkbox(
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+            colors = CheckboxDefaults.colors(
+                checkedColor = colorResource(id = R.color.purple_title),
+                uncheckedColor = colorResource(id = R.color.text_field_border),
+                checkmarkColor = Color.White
+            )
+        )
+        Text(text = label, color = colorResource(id = R.color.text_label), fontSize = 14.sp)
+    }
+}
