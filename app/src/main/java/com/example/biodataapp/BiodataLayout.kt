@@ -47,4 +47,11 @@ fun BiodataLayout() {
     var showDatePicker by remember { mutableStateOf(false) }
     var expandedDropdown by remember { mutableStateOf(false) }
     val datePickerState = rememberDatePickerState()
+
+    // List opsi Dropdown
+    val expOptions = listOf(
+        stringResource(id = R.string.exp_1_year),
+        stringResource(id = R.string.exp_2_years),
+        stringResource(id = R.string.exp_3_years)
+    )
 }
