@@ -182,6 +182,14 @@ fun BiodataLayout() {
                 ),
                 colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.bg_card_white))
             ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(dimensionResource(id = R.dimen.padding_large))
+                        .verticalScroll(rememberScrollState()),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                }
             }
         }
     }
