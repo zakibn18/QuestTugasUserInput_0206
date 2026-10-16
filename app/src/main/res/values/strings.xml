@@ -15,4 +15,5 @@
     <string name="cd_header_image">Header Background</string>
     <string name="cd_calendar_icon">Calendar Icon</string>
     <string name="popup_title">Hasil Input</string>
+    <string name="popup_success_msg">Data %1$s berhasil disubmit!</string>
 </resources>
